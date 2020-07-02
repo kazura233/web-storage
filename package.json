@@ -1,0 +1,17 @@
+{
+  "name": "storage-util",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kazura233/storage-util.git"
+  },
+  "keywords": [],
+  "author": "kazura233",
+  "bugs": {
+    "url": "https://github.com/kazura233/storage-util/issues"
+  },
+  "homepage": "https://github.com/kazura233/storage-util#readme"
+}
