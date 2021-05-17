@@ -11,6 +11,7 @@ export default {
     {
       file: pkg.main,
       format: 'cjs',
+      exports: 'auto',
     },
     {
       file: pkg.module,
@@ -19,7 +20,7 @@ export default {
     {
       file: pkg.unpkg,
       format: 'umd',
-      name: 'ReduxStore',
+      name: 'WebStorage',
     },
   ],
   external: Object.keys(pkg.peerDependencies || {}),

@@ -1,18 +1,20 @@
 {
-  "name": "@kazura/storage",
+  "name": "@kazura/web-storage",
   "version": "0.0.1-alpha.1",
-  "description": "storage",
+  "description": "web-storage",
   "keywords": [
-    "storage"
+    "storage",
+    "sessionStorage",
+    "localStorage"
   ],
-  "homepage": "https://github.com/kazura233/storage",
-  "repository": "https://github.com/kazura233/storage.git",
-  "bugs": "https://github.com/kazura233/storage/issues",
+  "homepage": "https://github.com/kazura233/web-storage",
+  "repository": "https://github.com/kazura233/web-storage.git",
+  "bugs": "https://github.com/kazura233/web-storage/issues",
   "author": "kazura233 <kazira233@gmail.com>",
   "license": "MIT",
-  "main": "lib/storage.js",
-  "unpkg": "dist/storage.js",
-  "module": "es/storage.js",
+  "main": "lib/web-storage.js",
+  "unpkg": "dist/web-storage.js",
+  "module": "es/web-storage.js",
   "types": "types/index.d.ts",
   "files": [
     "dist",
@@ -43,7 +45,7 @@
     "tslib": "^2.2.0",
     "typescript": "^4.2.4"
   },
-  "npmName": "@kazura233/storage",
+  "npmName": "@kazura233/web-storage",
   "npmFileMap": [
     {
       "basePath": "/dist/",
