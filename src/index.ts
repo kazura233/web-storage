@@ -1,40 +1,22 @@
-import { name, version } from '../package.json'
-
 class WebStorage {
-  private static mark: string = name
-  private static readonly version: string = version
-  private static readonly type: Array<any> = [
-    Array,
-    Object,
-    Boolean,
-    Number,
-    String,
-    Map,
-    Set,
-    void 0,
-  ]
-
-  public static setMark(mark: string) {
-    WebStorage.mark = mark
-  }
-
+  private readonly type: Array<any> = [Array, Object, Boolean, Number, String, Map, Set, void 0]
   private storage: Storage
   private keyName: string
   private valueType: any
 
   public constructor(storage: Storage, keyName: string, valueType: any) {
     this.storage = storage
-    this.keyName = valueType ? keyName : WebStorage.mark + '$' + keyName
-    if (!WebStorage.type.includes(valueType)) {
+    this.keyName = keyName
+    if (!this.type.includes(valueType)) {
       throw new Error('unknown type')
     }
     this.valueType = valueType
   }
 
-  private serialize(value: any, type: any): string {
+  public serialize(value: any, type: any): string {
     switch (type) {
       case void 0:
-        return JSON.stringify({ src: value, version: WebStorage.version })
+        return JSON.stringify(value)
       case Map:
       case Set:
         value = Array.from(value)
@@ -49,12 +31,11 @@ class WebStorage {
     }
   }
 
-  private unserialize(value: string, type: any): any {
+  public unserialize(value: string, type: any): any {
     switch (type) {
       case void 0:
         try {
-          const pack = JSON.parse(value)
-          return pack.src
+          return JSON.parse(value)
         } catch (error) {
           console.error(error)
           this.removeItem()
@@ -95,18 +76,7 @@ class WebStorage {
   }
 
   public key(key: number): string | null {
-    let value = this.storage.key(key)
-    if (value) {
-      try {
-        const pack = JSON.parse(value)
-        value = pack.src
-      } catch (error) {
-        console.error(error)
-        this.removeItem()
-        value = null
-      }
-    }
-    return value
+    return this.storage.key(key)
   }
 
   public get length(): number {
